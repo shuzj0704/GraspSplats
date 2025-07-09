@@ -11,3 +11,4 @@ dinov2_vits14
 part_level_features
 sam_clip_features
 weights
+camera_output
