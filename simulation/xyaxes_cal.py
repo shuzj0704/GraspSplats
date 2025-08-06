@@ -39,22 +39,43 @@ def calculate_camera_frame(camera_pos, target_pos):
     
     # 3. 转换为xyaxes格式（只需X和Y轴）
     xyaxes = np.concatenate([x_axis, y_axis])
-    
-    return " ".join([f"{val:.6f}" for val in xyaxes])
 
-# 示例验证
-camera_pos_1 = [0.3, 0.25, 0.4]
-camera_pos_2 = [0.3, -0.25, 0.4]
-camera_pos_3 = [0.8, 0.25, 0.4]
-camera_pos_4 = [0.8, -0.25, 0.4]
+    xyaxes = " ".join([f"{val:.6f}" for val in xyaxes])
+    pos = " ".join([f"{val:.2f}" for val in camera_pos])
+    # print(f'pos="{pos}" xyaxes="{xyaxes}"')
+    print(f'<camera name="camera_{i:02d}" mode="fixed" pos="{pos}" xyaxes="{xyaxes}"/>')
+    return xyaxes
 
+
+# 目标点
 target_pos = [0.6, 0, 0.05]
-xyaxes_1 = calculate_camera_frame(camera_pos_1, target_pos)
-xyaxes_2 = calculate_camera_frame(camera_pos_2, target_pos)
-xyaxes_3 = calculate_camera_frame(camera_pos_3, target_pos)
-xyaxes_4 = calculate_camera_frame(camera_pos_4, target_pos)
 
-print(f'xyaxes="{xyaxes_1}"')
-print(f'xyaxes="{xyaxes_2}"')
-print(f'xyaxes="{xyaxes_3}"')
-print(f'xyaxes="{xyaxes_4}"')
+# 所有相机位置
+camera_positions = [
+    [0.3, 0.25, 0.4],  # camera_pos_1
+    [0.3, -0.25, 0.4],  # camera_pos_2
+    [0.8, 0.25, 0.4],  # camera_pos_3
+    [0.8, -0.25, 0.4],  # camera_pos_4
+    [0.6, 0.35, 0.4],  # camera_pos_5
+    [0.6, -0.35, 0.4],  # camera_pos_6
+    [0.2, 0, 0.4],  # camera_pos_7
+    [0.9, 0, 0.4],  # camera_pos_8
+    [0.3, 0.25, 0.2],  # camera_pos_9
+    [0.3, -0.25, 0.2],  # camera_pos_10
+    [0.85, 0.3, 0.2],  # camera_pos_11
+    [0.85, -0.3, 0.2],  # camera_pos_12
+    [0.6, 0.35, 0.2],  # camera_pos_13
+    [0.6, -0.35, 0.2],  # camera_pos_14
+    [0.2, 0, 0.2],  # camera_pos_15
+    [0.9, 0, 0.2],  # camera_pos_16
+    [0.6, 0.35, 0.3],  # camera_pos_17
+    [0.6, -0.35, 0.3],  # camera_pos_18
+    [0.2, 0, 0.3],  # camera_pos_19
+    [0.9, 0, 0.3],  # camera_pos_20
+    [0.6, 0, 0.6],  # camera_pos_21 顶上方相机位置
+]
+
+# 循环计算所有相机的 xyaxes
+for i, camera_pos in enumerate(camera_positions, start=1):
+    # print(f"Camera {i}:")
+    calculate_camera_frame(camera_pos, target_pos)

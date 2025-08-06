@@ -282,7 +282,7 @@
                         <geom mesh="d435i_7" material="RGB_Pupil" class="d435i_visual"/>
                         <geom mesh="d435i_8" mass="0.072" material="Metal_Casing" class="d435i_visual"/>
                         <geom class="d435i_collision" type="capsule" mesh="d435i_8"/>
-                        <camera name="camera_end" mode="fixed" pos="0 0 0.02" euler="3.1415926 0 0" fovy="60" resolution="640 480"/>             
+                        <camera name="camera_end" mode="fixed" pos="0 0 0.02" euler="3.1415926 0 0" fovy="45" resolution="640 480"/>             
                       </body>
 
                     </body>
